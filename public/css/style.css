@@ -1,0 +1,57 @@
+
+
+/* ===== Primary Styles ========================================================
+   Author:
+   ========================================================================== */
+@-moz-keyframes rotate {
+  from	{ -moz-transform:	rotate(0deg); }
+  to	{ -moz-transform:	rotate(360deg); }	
+}
+@-webkit-keyframes rotate {
+  from	{ -webkit-transform:	rotate(0deg); }
+  to	{ -webkit-transform:	rotate(360deg); }
+}
+@-o-keyframes rotate {
+  from	{ -o-transform:	rotate(0deg); }
+  to	{ -o-transform:	rotate(360deg); }
+}
+@-ms-keyframes rotate {
+  from	{ -ms-transform:	rotate(0deg); }
+  to	{ -ms-transform:	rotate(360deg); }
+}
+@keyframes rotate {
+  from	{ transform:	rotate(0deg); }
+  to	{ transform:	rotate(360deg); }
+}
+
+.rotate
+{
+    -moz-animation:		rotate  1.5s linear infinite;
+    -webkit-animation:	rotate  1.5s linear infinite;
+    -o-animation:		rotate  1.5s linear infinite;
+    -ms-animation:		rotate  1.5s linear infinite;
+    animation:			rotate  1.5s linear infinite;
+
+    -moz-transform-origin: 50%;
+    -webkit-transform-origin: 50%;
+    -o-transform-origin: 50%;
+    -ms-transform-origin: 50%;
+    transform-origin: 50%;
+}
+
+#message #error-msg,
+#message #confirm-msg,
+#message #dual-msg { display: none; }
+
+#message.alert-error #error-msg,
+#message.alert-success #confirm-msg,
+#message.alert-warning #dual-msg { display: block; }
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+!!! 5
+//[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]
+//[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]
+//[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]
+//[if gt IE 8]><!
+html.no-js(lang="en")
+  //<![endif]
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    - if (typeof(subtitle) != 'undefined')
+      title "#{title}:#{subtitle}"
+    - else
+      title #{title}
+    meta(name="description", content="")
+    meta(name="author", content="")
+
+    meta(name="viewport", content="width=device-width,initial-scale=1")
+
+    link(href="/css/bootstrap.css", rel="stylesheet")
+    style body {
+        padding-top: 60px;
+        padding-bottom: 40px; }
+      
+    link(href="/css/bootstrap-responsive.css", rel="stylesheet")
+    link(href="/css/style.css", rel="stylesheet")
+
+    link(rel="shortcut icon", href="img/favicon.ico")
+    link(rel="apple-touch-icon", href="img/apple-touch-icon.png")
+
+    link(rel="apple-touch-icon", sizes="72x72" ,href="img/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon", sizes="114x114", href="img/apple-touch-icon-114x114.png")
+    script(src="/js/libs/modernizr-2.5-respond-1.1.0.min.js")
+
+  body
+    //[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]
+    include ./includes/navbar    
+    div.container!= body
+      

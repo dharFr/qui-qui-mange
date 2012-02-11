@@ -1,0 +1,58 @@
+div.content
+  div.page-header
+    h1 #{subtitle}
+  section
+    div.row
+      div.span6 
+        p Il est 12h45, personne n'a réservé et t'as déjà mal aux pieds en pensant aux  nombre de restos qu'il va falloir visiter pour trouver une table de 11...  
+            
+        p T'en a marre que tes collègues mettent 3/4 d'heure à choisir un resto...  
+          
+        p Abonne toi à 
+          strong #{title} 
+          | pour que ça n'arrive plus jamais!  
+      div.span6 
+
+          form#subscribeForm(method='post', action='/teammates') 
+            fieldset  
+              legend Abonne toi!!
+              
+              
+              // Message box if needed
+              div#message.alert(style='display:none;')
+                span#error-msg
+                  strong Oups!
+                  |  Something went wrong... Try again?
+                // Confirm message
+                span#confirm-msg
+                  strong Welcome board teammate! 
+                  br
+                  | Tu recevras bientôt un e-mail pour organiser le prochain resto!
+                // Confirm message
+                span#dual-msg
+                  strong Goldfish error! 
+                  br
+                  | T'es déjà inscrit apparement... Tu dors bien en ce moment?
+
+              // Form
+              div.control-group
+                label.control-label(for='email') Adresse e-mail : 
+                div.controls
+                  div.input-prepend
+                    span.add-on
+                      i.icon-envelope
+                    input(name='email', id='email', type='email', placeholder='your.email@email.com', required='required') 
+              input.btn-primary(type='submit', id='submit')  
+  
+  footer.footer
+    p 
+      | #{title} &copy;
+      br 
+      | Built by 
+      a(href='http://www.twitter.com/_dhar') @_dhar
+      br
+      | Source available on 
+      a(href='https://github.com/dharFr/quiquimange') Github 
+
+include ../includes/scripts
+!= js('subscribe')
