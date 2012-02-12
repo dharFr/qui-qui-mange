@@ -8,7 +8,7 @@ module.exports =
 		Teammate.findByEmail req.body.email, (err, existing) ->
 
 			if not existing
-				Teammate.create email: req.body.email, (err, inserted) ->
+				Teammate.create req.body.email, (err, inserted) ->
 					res.send inserted[0]
 
 			else #Conflict

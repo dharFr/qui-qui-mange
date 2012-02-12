@@ -11,7 +11,7 @@ $ ->
 		message = (type) ->
 
 			type = 'error' if not type in ['error', 'warning', 'success']
-			$message.removeClass().addClass("alert alert-#{type}")
+			$message.removeClass().addClass("alert alert-#{type}").show('slow')
 
 		switch state
 			when 'init', 'fail'
@@ -19,7 +19,7 @@ $ ->
 				$submit.removeClass('disabled').removeAttr('disabled')
 
 				if state is 'fail'
-					message('error').show('slow')
+					message('error')
 				else
 					$message.hide('slow')
 
@@ -36,9 +36,9 @@ $ ->
 					.removeClass('btn-primary').addClass('btn')
 		
 				if state is 'dual'
-					message('warning').show('slow')
+					message('warning')
 				else
-					message('success').show('slow')
+					message('success')
 		return
 
 	
@@ -65,6 +65,5 @@ $ ->
 				formState 'dual'
 			else
 				formState 'fail'
-
 
 		return false
