@@ -1,0 +1,48 @@
+div.content
+  div.page-header
+    h1 #{subtitle}
+  section
+    div.well.row
+      div.span4
+        p Hello 
+          strong #{teammate.email},
+            
+        p C'est l'heure de choisir un resto: 
+      div.span6
+        
+        // Message box if needed
+        div#message.alert(style='display:none;')
+          span#error-msg
+            strong Oups!
+            |  Something went wrong... Try again?
+          // Confirm message
+          span#confirm-msg
+            strong Done! 
+            br
+            | Merci d'avoir voté!
+          // Confirm message
+          span#dual-msg
+            strong Goldfish error! 
+            br
+            | T'as déjà voté apparement... Tu dors bien en ce moment?
+
+        form(id='todayForm', action="/vote/#{teammate._id}", method='post')
+          ul.nav.nav-pills.nav-stacked
+            - each place in places
+              li
+                label.radio
+                  input(id="#{place._id}", type='radio', name='resto', value="#{place._id}", required)
+                  i.icon-map-marker
+                  |  #{place.name}
+            li
+              label.radio
+                input(id="nothere", type='radio', name='resto', value="nothere", required)
+                i.icon-plane
+                |  Je mange pas avec ces gras-là aujourd'hui...
+
+          input.btn-primary(type='submit', value="J'ai fait mon choix")
+
+  
+include ../includes/footer
+include ../includes/scripts
+!= js('today')
