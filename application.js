@@ -4,7 +4,7 @@ var app = require('./app');
 var server = app.startup();
 console.log('created app');
 
-console.log('launching Module: onmangeou');
+console.log('launching Module: quiquimange');
 require('./quiquimange/main');
 
 server.listen(process.env.PORT || 3000);

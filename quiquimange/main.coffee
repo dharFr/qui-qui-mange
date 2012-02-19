@@ -1,9 +1,17 @@
 require('express-resource')
 
 app = require('../app').app()
-Lunch = require('./models/lunches').Lunch
+lunches = require('./models/lunches')
+Lunch = lunches.Lunch
+todayLunch = lunches.todayLunch
+
+Teammate = require('./models/teammates').Teammate
+restos = require('./restos-data')
 
 routePrefix = ''
+
+# cron jobs
+require('./jobs')
 
 # API
 teammates = app.resource("#{routePrefix}teammates", require('./resources/teammates'))
@@ -54,29 +62,4 @@ app.post "/#{routePrefix}vote/:teammateId", (req, res, next) ->
 				res.json(msg: 'ok', 200)
 			else
 				res.json(err:'Something went wrong', 500)
-
-		#for teammate in lunch.teammates
-		#	console.log "http://#{req.headers.host}/vote/#{teammate._id}"
-
-
-restos = require('./restos-data')
-Teammate = require('./models/teammates').Teammate
-
-todayLunch = (callback) ->
-
-	Lunch.findTodayLunch (err, existing) ->
-
-		if existing #Conflict
-
-    		console.log 'Lunch already exists'
-    		callback(null, [existing]) if callback
-		else
-			Teammate.findAll (err, teammates) ->
-		
-				if err != null
-					console.log 'handle error', err
-				else
-					Lunch.createTodayLunch(restos, teammates, callback)
-
-
 
