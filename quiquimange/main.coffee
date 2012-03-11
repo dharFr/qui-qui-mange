@@ -1,6 +1,6 @@
 require('express-resource')
 
-app = require('../app').app()
+app = require('../application').app()
 lunches = require('./models/lunches')
 Lunch = lunches.Lunch
 todayLunch = lunches.todayLunch
