@@ -1,0 +1,16 @@
+{
+    "name": "qui-qui-mange"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.5.8"
+    , "express-resource": "0.2.4"
+    , "connect-assets": "2.1.8"
+    , "jade": ">= 0.0.1"
+    , "coffee-script": "1.2.0"
+    , "mongoskin": "0.3.0"
+    , "moment": "1.4.0"
+    , "nodemailer": "0.3.2"
+    , "cron": "0.1.3"
+  }
+}
